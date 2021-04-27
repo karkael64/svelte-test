@@ -1,10 +1,9 @@
 import express from "express";
-import { default as routes } from "./routes";
-import { RouteDefinition } from "./types/routes";
+import { default as routes } from "../bff/routes";
 
 const app = express();
 
-routes.forEach((route: RouteDefinition) => {
+routes.forEach((route) => {
   app[route.method](route.path, route.handler);
 });
 

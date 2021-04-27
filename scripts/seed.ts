@@ -1,7 +1,7 @@
-import { deleteAllGroups } from "../api/controllers/group";
-import { deleteAllUsers } from "../api/controllers/user";
-import { createDefaultGroups } from "../api/seed/groups";
-import { createDefaultUsers } from "../api/seed/users";
+import { deleteAllGroups } from "../bff/controllers/group";
+import { deleteAllUsers } from "../bff/controllers/user";
+import { createDefaultGroups } from "../bff/seed/groups";
+import { createDefaultUsers } from "../bff/seed/users";
 
 const purge = async () => {
   console.log(`purge users: ${await deleteAllUsers()} items`);
