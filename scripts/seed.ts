@@ -1,7 +1,11 @@
-import { deleteAllGroups } from "../bff/controllers/group";
-import { deleteAllUsers } from "../bff/controllers/user";
-import { createDefaultGroups } from "../bff/seed/groups";
-import { createDefaultUsers, omitUsersPassword } from "../bff/seed/users";
+import faker from "faker";
+
+import { deleteAllGroups } from "../data/controllers/group";
+import { deleteAllUsers } from "../data/controllers/user";
+import { createDefaultGroups } from "../data/seed/groups";
+import { createDefaultUsers } from "../data/seed/users";
+
+faker.seed(1335);
 
 const purge = async () => {
   console.log(`✔ users purged (${await deleteAllUsers()} items)`);

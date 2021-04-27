@@ -1,18 +1,25 @@
 import { Prisma, User, Group } from ".prisma/client";
-import { isEmail, isPassword, isUsername } from "../../common";
+import { hashPassword, isEmail, isPassword, isUsername } from "../../common";
 import { prisma } from "../../prisma";
 
-export const createUser = (data: Prisma.UserCreateInput): Promise<User> => {
-  if (!isEmail(data.email)) {
-    throw new Error(`Syntax error on email ${data.email}.`);
+export const createUser = async (
+  data: Prisma.UserCreateInput
+): Promise<User> => {
+  const { password, ...rest } = data;
+
+  if (!isEmail(rest.email)) {
+    throw new Error(`Syntax error on email ${JSON.stringify(rest.email)}.`);
   }
-  if (!isPassword(data.password)) {
-    throw new Error(`Syntax error on password ${data.password}.`);
+  if (!isPassword(password)) {
+    throw new Error(`Syntax error on password ${JSON.stringify(password)}.`);
   }
-  if (!isUsername(data.name)) {
-    throw new Error(`Syntax error on username ${data.name}.`);
+  if (!isUsername(rest.name)) {
+    throw new Error(`Syntax error on username ${JSON.stringify(rest.name)}.`);
   }
-  return prisma.user.create({ data });
+
+  const passwordHashed = await hashPassword(password);
+
+  return prisma.user.create({ data: { ...rest, password: passwordHashed } });
 };
 
 export const deleteAllUsers = async (): Promise<number> =>

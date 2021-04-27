@@ -1,5 +1,5 @@
 import express from "express";
-import { default as routes } from "../bff/routes";
+import { default as routes } from "../data/routes";
 
 const app = express();
 

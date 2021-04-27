@@ -1,6 +1,7 @@
 import { User, Group, Prisma } from ".prisma/client";
 import faker from "faker";
 import { createUser } from "../controllers/user";
+import { hashPassword } from "../../common/password";
 
 export const createMockUser = (data: Partial<User>): User => {
   const id = data.id ?? faker.datatype.uuid();

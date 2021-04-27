@@ -1,6 +1,6 @@
 declare global {
   interface Object {
-    sort<C = this[keyof this], U = Record<keyof this, any>>(
+    sort<C = this[keyof this]>(
       fn?: (item: C, key: keyof this, object: this) => any
     ): this;
   }
