@@ -7,9 +7,9 @@
     "start": "sirv public",
     "pretty": "prettier --write .",
     "prisma:seed": "ts-node --project ./scripts/tsonfig.json ./scripts/seed.ts",
-    "prisma:generate": "prisma generate --schema ./api/prisma/schema.prisma",
-    "prisma:studio": "prisma studio --schema ./api/prisma/schema.prisma",
-    "prisma:push": "prisma db push --preview-feature --schema ./api/prisma/schema.prisma",
+    "prisma:generate": "prisma generate",
+    "prisma:studio": "prisma studio",
+    "prisma:push": "prisma db push --preview-feature",
     "prisma:reset": "yarn prisma:generate && yarn prisma:push && yarn prisma:seed",
     "api": "ts-node --project ./scripts/tsonfig.json ./scripts/serverless.ts",
     "test:psql": "ts-node --project ./scripts/tsonfig.json ./scripts/testPsql.ts"

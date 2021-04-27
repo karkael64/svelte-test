@@ -32,7 +32,7 @@ const defaultUsers: (Omit<Prisma.UserCreateInput, "group"> & {
   },
 ];
 
-export const createDefaultUsers = async (groups: Group[]) =>
+export const createDefaultUsers = async (groups: Group[]): Promise<User[]> =>
   Promise.all(
     defaultUsers.map(async (data) => {
       const { groupName, ...userData } = data;
@@ -44,3 +44,9 @@ export const createDefaultUsers = async (groups: Group[]) =>
       return user;
     })
   );
+
+export const omitUsersPassword = (users: User[]): Omit<User, "password">[] =>
+  users.map((user) => {
+    const { password, ...other } = user;
+    return other;
+  });
