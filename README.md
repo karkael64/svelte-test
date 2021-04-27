@@ -17,3 +17,27 @@ To get started with Svelte, along with [Serverless Functions](https://vercel.com
 ```shell
 $ npx degit sveltejs/template my-svelte-project
 ```
+
+## Dotenv
+
+## Express
+
+## Faker
+
+## PostgreSQL
+
+## Prettier
+
+## Prisma
+
+## Rollup
+
+## Sirv
+
+## Svelte
+
+## TS-Node
+
+## Typescript
+
+## Vercel compatible

@@ -1,4 +1,4 @@
-import { RouteDefinition } from '../types/routes';
+import { RouteDefinition } from "../types/routes";
 import { RequestHandler } from "express";
 
 const dateHandler: RequestHandler = (req, res) => {
@@ -10,11 +10,6 @@ const dateHandler: RequestHandler = (req, res) => {
 export default [
   {
     method: "post",
-    path: "/api/date",
-    handler: dateHandler,
-  },
-  {
-    method: "delete",
     path: "/api/date",
     handler: dateHandler,
   },
