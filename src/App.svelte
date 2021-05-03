@@ -1,17 +1,13 @@
-<script>
-  import { onMount } from "svelte";
-  export let date;
-  export let users;
+<script lang="ts">
+  import { ApolloClient, InMemoryCache } from "@apollo/client";
+  import { setClient } from "./graphql";
+  import User from "./User.svelte";
 
-  onMount(async () => {
-    const res = await fetch("/api/date", { method: "POST" });
-    const newDate = await res.text();
-    date = newDate;
-
-    const usersQuery = await fetch("/api/users")
-    const usersData = await usersQuery.json();
-    users = JSON.stringify(usersData, null, 2);
-  });
+  setClient(new ApolloClient({
+    uri: process.env.URL_GRAPHQL,
+    cache: new InMemoryCache({ addTypename: true }),
+    connectToDevTools: true,
+  }));
 </script>
 
 <main>
@@ -47,8 +43,5 @@
     </a>
     .
   </p>
-  <br />
-  <h2>The date according to Node.js is:</h2>
-  <p>{date ? date : 'Loading date...'}</p>
-  <pre>{users ? users : 'Loading users...'}</pre>
+  <User />
 </main>

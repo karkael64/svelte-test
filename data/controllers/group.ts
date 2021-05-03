@@ -17,3 +17,8 @@ export const createGroup = (data: Prisma.GroupCreateInput): Promise<Group> =>
 
 export const deleteAllGroups = async (): Promise<number> =>
   (await prisma.group.deleteMany()).count;
+
+export const findGroupById = (id: string) =>
+  prisma.group.findUnique({ where: { id } });
+
+export const findAllGroups = () => prisma.group.findMany();

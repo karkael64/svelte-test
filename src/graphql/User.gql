@@ -1,0 +1,32 @@
+fragment UserBody on User {
+  id
+  email
+  name
+  group {
+    id
+    name
+  }
+}
+
+query ListUsers {
+  users {
+    ...UserBody
+  }
+}
+
+query GetUser($id: ID!) {
+  user(id: $id) {
+    ...UserBody
+  }
+}
+
+mutation AddUser(
+  $email: String!
+  $name: String!
+  $password: String!
+  $group: ID!
+) {
+  addUser(email: $email, name: $name, password: $password, group: $group) {
+    ...UserBody
+  }
+}

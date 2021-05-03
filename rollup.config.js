@@ -1,8 +1,13 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import svelte from "rollup-plugin-svelte";
+import sveltePreprocess from "svelte-preprocess";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
+import typescript from "rollup-plugin-typescript2";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -27,8 +32,16 @@ function serve() {
   };
 }
 
+function read() {
+  return {
+    resolveId(id) {
+      console.log(id);
+    },
+  };
+}
+
 export default {
-  input: "src/main.js",
+  input: "src/main.ts",
   output: {
     sourcemap: true,
     format: "iife",
@@ -44,6 +57,12 @@ export default {
       css: (css) => {
         css.write("bundle.css");
       },
+
+      preprocess: sveltePreprocess({
+        replace: [
+          ["process.env.URL_GRAPHQL", JSON.stringify(process.env.URL_GRAPHQL)],
+        ],
+      }),
     }),
 
     // If you have external dependencies installed from
@@ -54,8 +73,15 @@ export default {
     resolve({
       browser: true,
       dedupe: ["svelte"],
+      extensions: [".svelte", ".js", ".ts"],
     }),
+
     commonjs(),
+
+    typescript({
+      sourceMap: false,
+      inlineSources: false,
+    }),
 
     // In dev mode, call `npm run start` once
     // the bundle has been generated

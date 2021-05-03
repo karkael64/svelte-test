@@ -1,12 +1,3 @@
-declare global {
-  interface Object {
-    map<C = this[keyof this], U = Record<keyof this, any>>(
-      fn: (item: C, key: keyof this, object: this) => any,
-      thisArg?: any
-    ): U;
-  }
-}
-
 function objectMap<
   T = Record<any, any>,
   C = T[keyof T],
@@ -20,11 +11,21 @@ function objectMap<
   }, {} as any) as U;
 }
 
-Object.defineProperty(Object.prototype, "map", {
-  enumerable: false,
-  value: function (fn: any, thisArg: any) {
-    return objectMap(this, fn, thisArg);
-  },
-});
+// declare global {
+//   interface Object {
+//     map<C = this[keyof this], U = Record<keyof this, any>>(
+//       fn: (item: C, key: keyof this, object: this) => any,
+//       thisArg?: any
+//     ): U;
+//   }
+// }
+
+// Object.defineProperty(Object.prototype, "map", {
+//   enumerable: false,
+//   configurable: true,
+//   value: function (fn: any, thisArg: any) {
+//     return objectMap(this, fn, thisArg);
+//   },
+// });
 
 export default objectMap;

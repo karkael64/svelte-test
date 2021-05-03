@@ -1,0 +1,53 @@
+(function (factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var v = factory(require, exports);
+        if (v !== undefined) module.exports = v;
+    }
+    else if (typeof define === "function" && define.amd) {
+        define(["require", "exports", "./types", "./syntax"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    const types_1 = require("./types");
+    const syntax_1 = require("./syntax");
+    function injectImports(source, isTypeOnly = false) {
+        const paths = Object.entries(source);
+        const t = isTypeOnly ? "import type" : "import";
+        return paths
+            .map(([path, value]) => {
+            syntax_1.shouldBeResolvePath(path);
+            if (types_1.isString(value)) {
+                return `${t} ${syntax_1.shouldBeVariableName(value)} from "${path}"`;
+            }
+            if (types_1.isArray(value)) {
+                return `${t} { ${value
+                    .map((sub) => {
+                    if (types_1.isString(sub)) {
+                        return syntax_1.shouldBeVariableName(sub);
+                    }
+                    if (types_1.isObject(sub)) {
+                        const firstKey = Object.keys(sub)[0];
+                        return `${syntax_1.shouldBeVariableName(firstKey)} as ${syntax_1.shouldBeVariableName(sub[firstKey])}`;
+                    }
+                })
+                    .join(", ")} } from "${path}";`;
+            }
+            if (types_1.isObject(value)) {
+                if (types_1.isObject(value.type)) {
+                    return injectImports({ [path]: value.type }, true);
+                }
+                if (value["*"]) {
+                    return `${t} * as ${syntax_1.shouldBeVariableName(value["*"])} from "${path}";`;
+                }
+                const subs = Object.entries(value);
+                return `${t} { ${subs
+                    .map(([name, alias]) => `${syntax_1.shouldBeVariableName(name)} as ${syntax_1.shouldBeVariableName(alias)}`)
+                    .join(", ")} } from "${path}";`;
+            }
+            return `${t} "${path}";`;
+        })
+            .join("\n");
+    }
+    exports.default = injectImports;
+});

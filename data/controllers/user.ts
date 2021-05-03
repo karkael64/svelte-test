@@ -1,4 +1,4 @@
-import { Prisma, User, Group } from ".prisma/client";
+import type { Prisma, User, Group } from ".prisma/client";
 import { hashPassword, isEmail, isPassword, isUsername } from "../../common";
 import { prisma } from "../../prisma";
 
@@ -40,13 +40,13 @@ export type SelectedUser = Pick<
   keyof typeof selectedFields
 >;
 
-export const findUserById = async (id: string): Promise<SelectedUser> =>
-  await prisma.user.findUnique({
+export const findUserById = (id: string): Promise<SelectedUser> =>
+  prisma.user.findUnique({
     select: selectedFields,
     where: { id },
   });
 
-export const findAllUsers = async (): Promise<SelectedUser[]> =>
-  await prisma.user.findMany({
+export const findAllUsers = (): Promise<SelectedUser[]> =>
+  prisma.user.findMany({
     select: selectedFields,
   });

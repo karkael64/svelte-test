@@ -1,0 +1,8 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true
+  },
+  "exclude": ["public"],
+  "include": ["api", "common", "data", "prisma", "scripts", "src"]
+}

@@ -2,14 +2,16 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { Client } from "pg";
-import "../common";
+import { arrayGroupBy, objectMap, objectSort } from "../common/browser";
 
 export const testPsql = (): Promise<void> =>
   new Promise((resolve, reject) => {
+    console.log("entered");
+
     type Result = { table_schema: string; table_name: string };
 
     const client = new Client({
-      connectionString: process.env.PG_HEROKU,
+      connectionString: process.env.PG_DATABASE,
       ssl: {
         rejectUnauthorized: false,
       },
@@ -24,11 +26,12 @@ export const testPsql = (): Promise<void> =>
             client.end();
 
             if (err) return reject(err);
-            const grouped = res.rows.groupBy("table_schema");
-            const mapped = grouped.map<{ table_name: string }[]>((list) =>
-              list.map((item) => item.table_name).sort()
+            const grouped = arrayGroupBy(res.rows, "table_schema");
+            const mapped = objectMap<typeof grouped, { table_name: string }[]>(
+              grouped,
+              (list) => list.map((item) => item.table_name).sort()
             );
-            const sorted = mapped.sort();
+            const sorted = objectSort(mapped);
 
             if (sorted.public?.length) {
               console.log(`✔ tables found (${sorted.public?.length} items):`, {

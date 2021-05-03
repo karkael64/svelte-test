@@ -1,11 +1,3 @@
-declare global {
-  interface Object {
-    sort<C = this[keyof this]>(
-      fn?: (item: C, key: keyof this, object: this) => any
-    ): this;
-  }
-}
-
 function objectSort<T = Record<any, any>, C = T[keyof T]>(
   object: T,
   fn: (a: any, b: any) => number = (a, b) => (a > b ? 1 : a < b ? -1 : 0)
@@ -19,11 +11,20 @@ function objectSort<T = Record<any, any>, C = T[keyof T]>(
   }, {} as any) as T;
 }
 
-Object.defineProperty(Object.prototype, "sort", {
-  enumerable: false,
-  value: function (fn?: any) {
-    return objectSort(this, fn);
-  },
-});
+// declare global {
+//   interface Object {
+//     sort<C = this[keyof this]>(
+//       fn?: (item: C, key: keyof this, object: this) => any
+//     ): this;
+//   }
+// }
+
+// Object.defineProperty(Object.prototype, "sort", {
+//   enumerable: false,
+//   configurable: true,
+//   value: function (fn?: any) {
+//     return objectSort(this, fn);
+//   },
+// });
 
 export default objectSort;
