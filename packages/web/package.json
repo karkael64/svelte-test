@@ -1,0 +1,49 @@
+{
+  "name": "@test/web",
+  "version": "1.0.0",
+  "description": "web for my app",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public",
+    "svelte-check": "svelte-check",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -c .storybook -o public",
+    "codegen": "graphql-codegen --config codegen.yml",
+    "postcodegen": "prettier --write ./graphql"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.16",
+    "graphql": "^15.5.0",
+    "svelte": "^3.38.2",
+    "types": "https://github.com/karkael64/types"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "1.21.4",
+    "@graphql-codegen/fragment-matcher": "2.0.1",
+    "@graphql-codegen/introspection": "1.18.2",
+    "@graphql-codegen/typescript": "1.22.0",
+    "@graphql-codegen/typescript-operations": "1.17.16",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@storybook/addon-svelte-csf": "^1.0.0",
+    "graphql-codegen-typescript-svelte-apollo": "^1.0.0",
+    "postcss": "^8.2.15",
+    "react": "^17.0.2",
+    "rollup": "^2.47.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "sirv": "^1.0.11",
+    "sirv-cli": "^1.0.11",
+    "storybook": "^6.2.9",
+    "svelte-check": "^1.5.4",
+    "svelte-preprocess": "^4.7.3"
+  },
+  "files": [
+    "public"
+  ]
+}

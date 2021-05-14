@@ -1,0 +1,22 @@
+{
+  "name": "@test/common",
+  "version": "1.0.0",
+  "description": "common functions for app",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "bcrypt": "^5.0.1",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "types": "https://github.com/karkael64/types.git"
+  },
+  "files": [
+    "dist"
+  ]
+}

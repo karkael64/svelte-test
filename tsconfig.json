@@ -1,8 +1,25 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
-    "allowJs": true
+    "declaration": true,
+    "esModuleInterop": true,
+    "module": "CommonJS",
+    "target": "es6",
+    "baseUrl": ".",
+    "lib": ["es2016", "esnext.asynciterable"],
+    "paths": {
+      "@test/common": ["packages/common/src/index.ts"],
+      "@test/data": ["packages/data/src/index.ts"],
+      "@test/prisma": ["packages/prisma/src/index.ts"],
+      "@test/web": ["packages/web/src/index.ts"]
+    }
   },
   "exclude": ["public"],
-  "include": ["api", "common", "data", "prisma", "scripts", "src"]
+  "include": [
+    "api",
+    "packages/common",
+    "packages/data",
+    "packages/prisma",
+    "packages/web"
+  ]
 }

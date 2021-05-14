@@ -1,0 +1,12 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "module": "es6",
+    "target": "ESNext",
+    "baseUrl": "."
+  },
+  "exclude": ["node_modules", "public"],
+  "include": ["graphql", "src", "stories"]
+}
