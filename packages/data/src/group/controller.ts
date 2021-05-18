@@ -1,5 +1,4 @@
-import type { Group, Prisma } from "@prisma/client";
-import { prisma } from "@test/prisma";
+import { client, Group, Prisma } from "@test/prisma";
 
 export const groupNames = [
   "deleted",
@@ -13,12 +12,12 @@ export const groupNames = [
 export type GroupName = typeof groupNames[number];
 
 export const createGroup = (data: Prisma.GroupCreateInput): Promise<Group> =>
-  prisma.group.create({ data });
+  client.group.create({ data });
 
 export const deleteAllGroups = async (): Promise<number> =>
-  (await prisma.group.deleteMany()).count;
+  (await client.group.deleteMany()).count;
 
 export const findGroupById = (id: string): Promise<Group> =>
-  prisma.group.findUnique({ where: { id } });
+  client.group.findUnique({ where: { id } });
 
-export const findAllGroups = (): Promise<Group[]> => prisma.group.findMany();
+export const findAllGroups = (): Promise<Group[]> => client.group.findMany();

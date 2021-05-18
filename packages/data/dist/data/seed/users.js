@@ -67,4 +67,3 @@ const omitUsersPassword = (users) => users.map((user) => {
     return other;
 });
 exports.omitUsersPassword = omitUsersPassword;
-//# sourceMappingURL=users.js.map

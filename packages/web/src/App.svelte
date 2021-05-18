@@ -2,6 +2,7 @@
   import { ApolloClient, InMemoryCache } from "@apollo/client";
   import { setClient } from "../graphql";
   import User from "./User.svelte";
+  import Counter from "./Counter.svelte";
 
   setClient(new ApolloClient({
     uri: process.env.URL_GRAPHQL,
@@ -44,6 +45,7 @@
     .
   </p>
   <User />
+  <Counter />
 </main>
 
 <style>

@@ -21,8 +21,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findAllUsers = exports.findUserById = exports.deleteAllUsers = exports.createUser = void 0;
-const common_1 = require("@test/common");
 const prisma_1 = require("@test/prisma");
+const common_1 = require("@test/common");
 const createUser = (data) => __awaiter(void 0, void 0, void 0, function* () {
     const { password } = data, rest = __rest(data, ["password"]);
     if (!common_1.isEmail(rest.email)) {
@@ -35,10 +35,10 @@ const createUser = (data) => __awaiter(void 0, void 0, void 0, function* () {
         throw new Error(`Syntax error on username ${JSON.stringify(rest.name)}.`);
     }
     const passwordHashed = yield common_1.hashPassword(password);
-    return prisma_1.prisma.user.create({ data: Object.assign(Object.assign({}, rest), { password: passwordHashed }) });
+    return prisma_1.client.user.create({ data: Object.assign(Object.assign({}, rest), { password: passwordHashed }) });
 });
 exports.createUser = createUser;
-const deleteAllUsers = () => __awaiter(void 0, void 0, void 0, function* () { return (yield prisma_1.prisma.user.deleteMany()).count; });
+const deleteAllUsers = () => __awaiter(void 0, void 0, void 0, function* () { return (yield prisma_1.client.user.deleteMany()).count; });
 exports.deleteAllUsers = deleteAllUsers;
 const selectedFields = {
     id: true,
@@ -49,13 +49,12 @@ const selectedFields = {
     groupId: true,
     group: true,
 };
-const findUserById = (id) => prisma_1.prisma.user.findUnique({
+const findUserById = (id) => prisma_1.client.user.findUnique({
     select: selectedFields,
     where: { id },
 });
 exports.findUserById = findUserById;
-const findAllUsers = () => prisma_1.prisma.user.findMany({
+const findAllUsers = () => prisma_1.client.user.findMany({
     select: selectedFields,
 });
 exports.findAllUsers = findAllUsers;
-//# sourceMappingURL=controller.js.map

@@ -10,4 +10,3 @@ const hashPassword = (plain) => bcrypt_1.default.hash(plain, saltRounds);
 exports.hashPassword = hashPassword;
 const comparePassword = (plain, hashed) => bcrypt_1.default.compare(plain, hashed);
 exports.comparePassword = comparePassword;
-//# sourceMappingURL=password.js.map

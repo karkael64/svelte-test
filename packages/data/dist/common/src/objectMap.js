@@ -18,4 +18,3 @@ if (Object.prototype.map === undefined) {
         },
     });
 }
-//# sourceMappingURL=objectMap.js.map

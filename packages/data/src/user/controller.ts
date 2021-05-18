@@ -1,6 +1,5 @@
-import type { Prisma, User, Group } from ".prisma/client";
+import { client, Group, Prisma, User } from "@test/prisma";
 import { hashPassword, isEmail, isPassword, isUsername } from "@test/common";
-import { prisma } from "@test/prisma";
 
 export const createUser = async (
   data: Prisma.UserCreateInput
@@ -19,11 +18,11 @@ export const createUser = async (
 
   const passwordHashed = await hashPassword(password);
 
-  return prisma.user.create({ data: { ...rest, password: passwordHashed } });
+  return client.user.create({ data: { ...rest, password: passwordHashed } });
 };
 
 export const deleteAllUsers = async (): Promise<number> =>
-  (await prisma.user.deleteMany()).count;
+  (await client.user.deleteMany()).count;
 
 const selectedFields = {
   id: true,
@@ -41,12 +40,12 @@ export type SelectedUser = Pick<
 >;
 
 export const findUserById = (id: string): Promise<SelectedUser> =>
-  prisma.user.findUnique({
+  client.user.findUnique({
     select: selectedFields,
     where: { id },
   });
 
 export const findAllUsers = (): Promise<SelectedUser[]> =>
-  prisma.user.findMany({
+  client.user.findMany({
     select: selectedFields,
   });

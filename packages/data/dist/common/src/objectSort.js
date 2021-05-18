@@ -19,4 +19,3 @@ if (Object.prototype.sort) {
         },
     });
 }
-//# sourceMappingURL=objectSort.js.map

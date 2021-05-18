@@ -5,4 +5,3 @@ const matchAll = (regexps) => (text = "") => !(!Array.isArray(regexps) ? [regexp
 exports.isEmail = matchAll(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 exports.isPassword = matchAll([/^.{8,}$/, /\d/, /\w/, /\W/]);
 exports.isUsername = matchAll(/^[\w\d._'-]{5,}$/);
-//# sourceMappingURL=regex.js.map

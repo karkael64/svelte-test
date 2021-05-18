@@ -1,4 +1,4 @@
-import type { Prisma, User, Group } from ".prisma/client";
+import { Group, Prisma, User } from "@test/prisma";
 export declare const createUser: (data: Prisma.UserCreateInput) => Promise<User>;
 export declare const deleteAllUsers: () => Promise<number>;
 declare const selectedFields: {

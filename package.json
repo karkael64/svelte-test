@@ -18,32 +18,28 @@
     "url": "https://github.com/karkael64"
   },
   "scripts": {
+    "prebuild": "yarn",
     "build": "yarn @common build && yarn @prisma build && yarn @data build && yarn @web build",
     "postbuild": "yarn pretty",
-    "serverless": "concurrently -n api,web -c bgCyan,bgMagenta \"yarn api\" \"yarn web\"",
+    "dev": "concurrently -n api,web -c bgCyan,bgMagenta \"yarn api\" \"yarn web\"",
     "lint": "eslint **/*.ts",
     "pretty": "prettier --write .",
+    "check:ts": "tsc --strict --noEmit",
+    "check:svelte": "yarn @ui validate && yarn @web validate",
     "@common": "yarn workspace @test/common",
+    "@ui": "yarn workspace @test/ui",
     "@data": "yarn workspace @test/data",
     "@prisma": "yarn workspace @test/prisma",
     "@web": "yarn workspace @test/web",
-    "api": "ts-node ./api/index.ts",
-    "web": "yarn @web dev"
-  },
-  "dependencies": {
-    "@tsconfig/svelte": "^1.0.10",
-    "bcrypt": "^5.0.1",
-    "concurrently": "^6.1.0",
-    "express-graphql": "^0.12.0",
-    "graphql-tag": "^2.11.0",
-    "graphql-tools": "^7.0.4",
-    "pg": "^8.6.0",
-    "svelte-apollo": "^0.4.0",
-    "types": "https://github.com/karkael64/types"
+    "api": "ts-node ./serverless.ts",
+    "web": "yarn @web dev",
+    "story": "yarn @ui storybook"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.23",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
+    "concurrently": "^6.1.0",
     "eslint": "^7.26.0",
     "typescript": "^4.2.4",
     "vercel": "^22.0.0"
@@ -58,7 +54,20 @@
     "packages/common",
     "packages/data",
     "packages/prisma",
+    "packages/ui",
     "packages/web"
   ],
-  "npmClient": "yarn"
+  "npmClient": "yarn",
+  "files": [
+    "api",
+    "packages/common/dist",
+    "packages/common/package.json",
+    "packages/data/dist",
+    "packages/data/package.json",
+    "packages/prisma/client",
+    "packages/prisma/dist",
+    "packages/prisma/package.json",
+    "packages/web/public",
+    "packages/web/package.json"
+  ]
 }

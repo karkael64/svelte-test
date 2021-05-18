@@ -1,5 +1,6 @@
 // Type definitions for decimal.js >=7.0.0
 
+
 declare namespace Decimal {
   export type Constructor = typeof Decimal;
   export type Instance = Decimal;
@@ -137,17 +138,17 @@ declare class Decimal {
 
   round(): Decimal;
 
-  sine(): Decimal;
-  sin(): Decimal;
+  sine() : Decimal;
+  sin() : Decimal;
 
   squareRoot(): Decimal;
   sqrt(): Decimal;
 
-  tangent(): Decimal;
-  tan(): Decimal;
+  tangent() : Decimal;
+  tan() : Decimal;
 
   times(n: Decimal.Value): Decimal;
-  mul(n: Decimal.Value): Decimal;
+  mul(n: Decimal.Value) : Decimal;
 
   toBinary(significantDigits?: number): string;
   toBinary(significantDigits: number, rounding: Decimal.Rounding): string;
@@ -186,10 +187,7 @@ declare class Decimal {
   toPrecision(significantDigits: number, rounding: Decimal.Rounding): string;
 
   toSignificantDigits(significantDigits?: number): Decimal;
-  toSignificantDigits(
-    significantDigits: number,
-    rounding: Decimal.Rounding
-  ): Decimal;
+  toSignificantDigits(significantDigits: number, rounding: Decimal.Rounding): Decimal;
   toSD(significantDigits?: number): Decimal;
   toSD(significantDigits: number, rounding: Decimal.Rounding): Decimal;
 
@@ -219,7 +217,7 @@ declare class Decimal {
   static exp(n: Decimal.Value): Decimal;
   static floor(n: Decimal.Value): Decimal;
   static hypot(...n: Decimal.Value[]): Decimal;
-  static isDecimal(object: any): boolean;
+  static isDecimal(object: any): boolean
   static ln(n: Decimal.Value): Decimal;
   static log(n: Decimal.Value, base?: Decimal.Value): Decimal;
   static log2(n: Decimal.Value): Decimal;
@@ -228,7 +226,7 @@ declare class Decimal {
   static min(...n: Decimal.Value[]): Decimal;
   static mod(x: Decimal.Value, y: Decimal.Value): Decimal;
   static mul(x: Decimal.Value, y: Decimal.Value): Decimal;
-  static noConflict(): Decimal.Constructor; // Browser only
+  static noConflict(): Decimal.Constructor;   // Browser only
   static pow(base: Decimal.Value, exponent: Decimal.Value): Decimal;
   static random(significantDigits?: number): Decimal;
   static round(n: Decimal.Value): Decimal;

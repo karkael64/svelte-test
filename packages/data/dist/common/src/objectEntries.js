@@ -15,4 +15,3 @@ if (Object.entries === undefined) {
         },
     });
 }
-//# sourceMappingURL=objectEntries.js.map

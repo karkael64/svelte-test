@@ -1,12 +1,11 @@
-<script lang="ts">
+<script>
   import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-  import Header from "./Header.svelte";
+  import Page from "./Page.svelte";
 </script>
 
-<!-- svelte-ignore missing-declaration -->
 <Meta
-  title="Example/Header"
-  component={Header}
+  title="Example/Page"
+  component={Page}
   argTypes={{
     onLogin: { action: "onLogin" },
     onLogout: { action: "onLogout" },
@@ -14,9 +13,8 @@
   }}
 />
 
-<!-- svelte-ignore missing-declaration -->
 <Template let:args>
-  <Header
+  <Page
     {...args}
     on:login={args.onLogin}
     on:logout={args.onLogout}
@@ -24,7 +22,6 @@
   />
 </Template>
 
-<!-- svelte-ignore missing-declaration -->
 <Story
   name="LoggedIn"
   args={{
@@ -32,5 +29,4 @@
   }}
 />
 
-<!-- svelte-ignore missing-declaration -->
 <Story name="LoggedOut" args={{}} />

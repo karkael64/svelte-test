@@ -19,12 +19,11 @@ exports.groupNames = [
     "user",
     "guest",
 ];
-const createGroup = (data) => prisma_1.prisma.group.create({ data });
+const createGroup = (data) => prisma_1.client.group.create({ data });
 exports.createGroup = createGroup;
-const deleteAllGroups = () => __awaiter(void 0, void 0, void 0, function* () { return (yield prisma_1.prisma.group.deleteMany()).count; });
+const deleteAllGroups = () => __awaiter(void 0, void 0, void 0, function* () { return (yield prisma_1.client.group.deleteMany()).count; });
 exports.deleteAllGroups = deleteAllGroups;
-const findGroupById = (id) => prisma_1.prisma.group.findUnique({ where: { id } });
+const findGroupById = (id) => prisma_1.client.group.findUnique({ where: { id } });
 exports.findGroupById = findGroupById;
-const findAllGroups = () => prisma_1.prisma.group.findMany();
+const findAllGroups = () => prisma_1.client.group.findMany();
 exports.findAllGroups = findAllGroups;
-//# sourceMappingURL=controller.js.map

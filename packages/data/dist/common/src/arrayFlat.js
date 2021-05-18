@@ -16,4 +16,3 @@ if (Array.prototype.flat === undefined) {
         },
     });
 }
-//# sourceMappingURL=arrayFlat.js.map

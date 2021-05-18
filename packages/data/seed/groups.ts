@@ -1,4 +1,4 @@
-import type { Group } from ".prisma/client";
+import type { Group } from "@test/prisma";
 import faker from "faker";
 import { createGroup, groupNames } from "../src/group/controller";
 

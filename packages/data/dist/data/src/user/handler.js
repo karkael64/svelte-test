@@ -47,4 +47,3 @@ exports.default = [
         handler: getUserHandler,
     },
 ];
-//# sourceMappingURL=handler.js.map

@@ -17,18 +17,17 @@ exports.default = {
                 return controller_1.findAllUsers();
             });
         },
-        user(root, { id }, ctx, info) {
+        user(_root, { id }) {
             return __awaiter(this, void 0, void 0, function* () {
                 return controller_1.findUserById(id);
             });
         },
     },
     Mutation: {
-        addUser(root, { email, name, password, group }) {
+        addUser(_root, { email, name, password, group }) {
             return __awaiter(this, void 0, void 0, function* () {
                 return controller_1.createUser({ email, name, password, group });
             });
         },
     },
 };
-//# sourceMappingURL=resolver.js.map

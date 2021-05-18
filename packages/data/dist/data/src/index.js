@@ -12,4 +12,3 @@ exports.router = express_1.Router();
 routes_1.routes.forEach((routeDef) => {
     exports.router[routeDef.method](routeDef.path, routeDef.handler);
 });
-//# sourceMappingURL=index.js.map

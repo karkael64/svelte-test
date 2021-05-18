@@ -6,12 +6,12 @@ export default {
     async users() {
       return findAllUsers();
     },
-    async user(root, { id }, ctx, info) {
+    async user(_root, { id }) {
       return findUserById(id);
     },
   },
   Mutation: {
-    async addUser(root, { email, name, password, group }) {
+    async addUser(_root, { email, name, password, group }) {
       return createUser({ email, name, password, group });
     },
   },

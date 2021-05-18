@@ -46,4 +46,3 @@ main
     console.error("✘ Seed error:", err);
     process.exit(1);
 });
-//# sourceMappingURL=seed.js.map

@@ -8,4 +8,3 @@ function stringSplice(text, start, length, ...insert) {
     return `${begin}${middle}${last}`;
 }
 exports.default = stringSplice;
-//# sourceMappingURL=stringSplice.js.map

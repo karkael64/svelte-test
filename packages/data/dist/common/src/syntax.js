@@ -17,4 +17,3 @@ function shouldBeResolvePath(text) {
     return stringShouldMatch(text, /^@?[./\w-]+$/, `Syntax error, string ${ellipsis_1.escapedEllipsis(text)} can not be resolved in import`);
 }
 exports.shouldBeResolvePath = shouldBeResolvePath;
-//# sourceMappingURL=syntax.js.map

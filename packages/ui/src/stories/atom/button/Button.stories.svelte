@@ -1,11 +1,10 @@
-<script lang="ts">
+<script>
   import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
   import Button from "./Button.svelte";
 </script>
 
-<!-- svelte-ignore missing-declaration -->
 <Meta
-  title="Example/Button"
+  title="Atom/Button"
   component={Button}
   argTypes={{
     label: { control: "text" },
@@ -18,12 +17,10 @@
   }}
 />
 
-<!-- svelte-ignore missing-declaration -->
 <Template let:args>
   <Button {...args} on:click={args.onClick} />
 </Template>
 
-<!-- svelte-ignore missing-declaration -->
 <Story
   name="Primary"
   args={{
@@ -32,15 +29,12 @@
   }}
 />
 
-<!-- svelte-ignore missing-declaration -->
 <Story
   name="Secondary"
   args={{
     label: "Button",
   }}
 />
-
-<!-- svelte-ignore missing-declaration -->
 <Story
   name="Large"
   args={{
@@ -49,7 +43,6 @@
   }}
 />
 
-<!-- svelte-ignore missing-declaration -->
 <Story
   name="Small"
   args={{

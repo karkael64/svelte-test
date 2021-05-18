@@ -17,4 +17,3 @@ exports.default = express_graphql_1.graphqlHTTP({
     schema,
     graphiql: true,
 });
-//# sourceMappingURL=resolvers.js.map

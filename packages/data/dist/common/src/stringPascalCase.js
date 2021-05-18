@@ -11,4 +11,3 @@ function stringPascalCase(text) {
     throw new Error(`Can not translate ${ellipsis_1.escapedEllipsis(text, 40)} to pascal case`);
 }
 exports.default = stringPascalCase;
-//# sourceMappingURL=stringPascalCase.js.map

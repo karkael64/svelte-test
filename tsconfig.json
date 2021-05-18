@@ -1,5 +1,4 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "declaration": true,
     "esModuleInterop": true,
@@ -9,6 +8,7 @@
     "lib": ["es2016", "esnext.asynciterable"],
     "paths": {
       "@test/common": ["packages/common/src/index.ts"],
+      "@test/ui": ["packages/ui/src/main.ts"],
       "@test/data": ["packages/data/src/index.ts"],
       "@test/prisma": ["packages/prisma/src/index.ts"],
       "@test/web": ["packages/web/src/index.ts"]
@@ -20,6 +20,7 @@
     "packages/common",
     "packages/data",
     "packages/prisma",
+    "packages/ui",
     "packages/web"
   ]
 }

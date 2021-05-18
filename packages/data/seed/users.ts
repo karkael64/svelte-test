@@ -1,4 +1,4 @@
-import type { User, Group, Prisma } from ".prisma/client";
+import type { User, Group, Prisma } from "@test/prisma";
 import faker from "faker";
 import { createUser } from "../src/user/controller";
 

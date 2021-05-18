@@ -33,4 +33,3 @@ var syntax_1 = require("./syntax");
 Object.defineProperty(exports, "stringShouldMatch", { enumerable: true, get: function () { return syntax_1.stringShouldMatch; } });
 Object.defineProperty(exports, "shouldBeVariableName", { enumerable: true, get: function () { return syntax_1.shouldBeVariableName; } });
 Object.defineProperty(exports, "shouldBeResolvePath", { enumerable: true, get: function () { return syntax_1.shouldBeResolvePath; } });
-//# sourceMappingURL=browser.js.map

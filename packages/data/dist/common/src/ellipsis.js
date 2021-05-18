@@ -26,4 +26,3 @@ function escapedEllipsis(item, length = 40) {
         : stringSplice_1.default(text, _length - 1, text.length - _length, "…");
 }
 exports.escapedEllipsis = escapedEllipsis;
-//# sourceMappingURL=ellipsis.js.map

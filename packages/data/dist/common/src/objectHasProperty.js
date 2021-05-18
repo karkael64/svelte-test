@@ -10,4 +10,3 @@ function objectHasProperties(object, keys) {
     return !keys.find((key) => types_1.isUndefined(object[key]));
 }
 exports.objectHasProperties = objectHasProperties;
-//# sourceMappingURL=objectHasProperty.js.map
