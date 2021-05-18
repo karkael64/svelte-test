@@ -51,6 +51,12 @@ export type Group = {
   childGroups: Array<Maybe<Group>>;
 };
 
+export type Hello = {
+  __typename?: "Hello";
+  date: Scalars["DateTime"];
+  message?: Maybe<Scalars["String"]>;
+};
+
 export type Mutation = {
   __typename?: "Mutation";
   addUser: User;
@@ -74,6 +80,7 @@ export type Query = {
   __typename?: "Query";
   group: Group;
   groups: Array<Maybe<Group>>;
+  hello: Hello;
   user: User;
   users: Array<Maybe<User>>;
 };
@@ -108,6 +115,12 @@ export type GroupsQuery = { __typename?: "Query" } & {
       >
     >
   >;
+};
+
+export type HelloQueryVariables = Exact<{ [key: string]: never }>;
+
+export type HelloQuery = { __typename?: "Query" } & {
+  hello: { __typename?: "Hello" } & Pick<Hello, "date" | "message">;
 };
 
 export type UserBodyFragment = { __typename?: "User" } & Pick<
@@ -191,6 +204,18 @@ export const GroupsDocument = gql`
 export const QueryGroups = (
   options: Omit<QueryOptions<GroupsQueryVariables>, "query">
 ) => getClient().query<GroupsQuery>({ query: GroupsDocument, ...options });
+
+export const HelloDocument = gql`
+  query Hello {
+    hello {
+      date
+      message
+    }
+  }
+`;
+export const QueryHello = (
+  options: Omit<QueryOptions<HelloQueryVariables>, "query">
+) => getClient().query<HelloQuery>({ query: HelloDocument, ...options });
 
 export const ListUsersDocument = gql`
   query ListUsers {

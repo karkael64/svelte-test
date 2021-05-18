@@ -4,7 +4,8 @@
   "description": "web for my app",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
+    "build": "yarn codegen && yarn prod",
+    "prod": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public",
     "validate": "svelte-check",
