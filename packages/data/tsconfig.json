@@ -2,8 +2,9 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
-    "lib": ["es2016", "DOM"]
+    "lib": ["es2016", "DOM"],
+    "types": ["graphql"]
   },
-  "include": ["scripts", "seed", "src", "types", "resolvers.ts", "routes.ts"],
+  "include": ["scripts", "seed", "src", "types"],
   "exclude": ["dist", "node_modules"]
 }

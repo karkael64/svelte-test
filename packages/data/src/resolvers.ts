@@ -9,7 +9,7 @@ const options = {
     loadFilesSync(path.join(__dirname, "../src/**/*.graphql"))
   ),
   resolvers: mergeResolvers(
-    loadFilesSync(path.join(__dirname, "../src/**/*resolver.ts"))
+    loadFilesSync([path.join(__dirname, "../src/**/*resolver.(j|t)s")])
   ),
 };
 

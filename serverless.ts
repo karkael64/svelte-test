@@ -1,10 +1,10 @@
 import express from "express";
-import { graphql } from "./packages/data/src/index";
+import { graphql } from "@test/data";
 
 const port = 3000;
 const app = express();
 
-app.use("/graphql", graphql);
+app.use("/api/graphql", graphql);
 
 app.use(express.static("packages/web/public"));
 

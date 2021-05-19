@@ -26,6 +26,7 @@
     "pretty": "prettier --write .",
     "check:ts": "tsc --strict --noEmit",
     "check:svelte": "yarn @ui validate && yarn @web validate",
+    "seed": "yarn @data seed",
     "@common": "yarn workspace @test/common",
     "@ui": "yarn workspace @test/ui",
     "@data": "yarn workspace @test/data",

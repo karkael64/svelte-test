@@ -1,0 +1,8 @@
+type Event {
+  id: String!
+  title: String!
+  scheduledAt: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  group: Group!
+}

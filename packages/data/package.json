@@ -6,13 +6,15 @@
   "types": "dist/data/src/index.d.ts",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && yarn copy:graphql",
+    "copy:graphql": "copyfiles \"src/**/*.graphql\" \"dist/data\"",
     "seed": "ts-node --project ./scripts/tsconfig.json ./scripts/seed.ts"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
     "@types/faker": "^5.5.5",
     "@types/ws": "^7.4.4",
+    "copyfiles": "^2.4.1",
     "faker": "^5.5.3",
     "serverless": "^2.41.2",
     "typescript": "^4.2.4"
