@@ -1,5 +1,5 @@
 import { client, Group, Prisma, User } from "@test/prisma";
-import { hashPassword, isEmail, isPassword, isUsername } from "@test/common";
+import { isEmail, isPassword, isUsername } from "@test/common";
 
 export const createUser = async (
   data: Prisma.UserCreateInput
@@ -16,7 +16,7 @@ export const createUser = async (
     throw new Error(`Syntax error on username ${JSON.stringify(rest.name)}.`);
   }
 
-  const passwordHashed = await hashPassword(password);
+  const passwordHashed = password;
 
   return client.user.create({ data: { ...rest, password: passwordHashed } });
 };
