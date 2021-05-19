@@ -1,6 +1,6 @@
 import { fireEvent } from "@testing-library/svelte";
 import { Button } from "../src/main";
-import type { Button as ButtonType } from "../src/main.d";
+import type { Button as ButtonType } from "../src/type";
 import { renderWithEvents } from "./renderWithEvents";
 
 describe("Button", () => {
