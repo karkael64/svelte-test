@@ -18,6 +18,6 @@ export const deleteAllGroups = async (): Promise<number> =>
   (await client.group.deleteMany()).count;
 
 export const findGroupById = (id: string): Promise<Group> =>
-  client.group.findUnique({ where: { id } });
+  client.group.findUnique({ where: { id } }) as any;
 
 export const findAllGroups = (): Promise<Group[]> => client.group.findMany();

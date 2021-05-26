@@ -13,7 +13,7 @@ export default function arrayGroupBy<
   return list.reduce((acc, item) => {
     const { [field]: name, ...rest } = item;
     if (isObjectKey(name)) {
-      const key = name as string | number | symbol;
+      const key = name as Value;
       if (!Array.isArray(acc[key])) {
         acc[key] = [];
       }

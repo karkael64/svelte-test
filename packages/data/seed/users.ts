@@ -21,6 +21,16 @@ export const createMockUser = (data: Partial<User>): User => {
   };
 };
 
+if (
+  !process.env.ADMIN_USERMAIL ||
+  !process.env.ADMIN_USERNAME ||
+  !process.env.ADMIN_PASSWORD
+) {
+  throw new Error(
+    "Expect env file to contain valid expressions for ADMIN_USERMAIL, ADMIN_USERNAME and ADMIN_PASSWORD"
+  );
+}
+
 const defaultUsers: (Omit<Prisma.UserCreateInput, "group"> & {
   groupName: string;
 })[] = [
@@ -36,7 +46,7 @@ export const createDefaultUsers = async (groups: Group[]): Promise<User[]> =>
   Promise.all(
     defaultUsers.map(async (data) => {
       const { groupName, ...userData } = data;
-      const groupId = groups.find((group) => group.name === groupName).id;
+      const groupId = groups.find((group) => group.name === groupName)?.id;
       const user = await createUser({
         ...userData,
         group: { connect: { id: groupId } },

@@ -5,7 +5,7 @@ export default {
     async groups() {
       return findAllGroups();
     },
-    async group(root, { id }, ctx, info) {
+    async group(_root: any, { id }: any) {
       return findGroupById(id);
     },
   },

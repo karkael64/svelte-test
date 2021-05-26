@@ -43,7 +43,7 @@ export const findUserById = (id: string): Promise<SelectedUser> =>
   client.user.findUnique({
     select: selectedFields,
     where: { id },
-  });
+  }) as any;
 
 export const findAllUsers = (): Promise<SelectedUser[]> =>
   client.user.findMany({

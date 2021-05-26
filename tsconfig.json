@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": true,
     "declaration": true,
     "esModuleInterop": true,
     "module": "CommonJS",
@@ -14,7 +15,6 @@
       "@test/web": ["packages/web/src/index.ts"]
     }
   },
-  "exclude": ["public"],
   "include": [
     "api",
     "packages/common",

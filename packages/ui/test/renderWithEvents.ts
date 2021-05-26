@@ -13,7 +13,7 @@ export const renderWithEvents = <
 ): RenderResult => {
   const { component, ...rest } = render(Comp as any, props, renderOptions);
   Object.entries(events).forEach(([eventName, fn]) =>
-    component.$on(eventName, fn)
+    component.$on(eventName, fn as any)
   );
   return { component, ...rest };
 };

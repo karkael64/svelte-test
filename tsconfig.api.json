@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "api-build",
+    "declaration": false,
+    "esModuleInterop": true,
+    "module": "CommonJS",
+    "target": "es6",
+    "baseUrl": ".",
+    "lib": ["es2016", "esnext.asynciterable"]
+  },
+  "include": ["packages/common/src", "packages/data/src", "packages/prisma/src"]
+}

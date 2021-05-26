@@ -1,11 +1,11 @@
 import stringSplice from "./stringSplice";
 import { toTypeString } from "types";
 
-export function ellipsis(text: string, length: number = 40): string {
+export function ellipsis(text: string, length = 40): string {
   return text.slice(0, length) + (text.length > length && "…");
 }
 
-export function ellipsisQuoted(text: string, length: number = 40): string {
+export function ellipsisQuoted(text: string, length = 40): string {
   const _length = Math.max(4, length) - 1;
   const quoted = JSON.stringify(text);
   return quoted.length < _length + 2
@@ -13,7 +13,7 @@ export function ellipsisQuoted(text: string, length: number = 40): string {
     : stringSplice(quoted, _length - 1, quoted.length - _length, "…");
 }
 
-export function escapedEllipsis(item: unknown, length: number = 40): string {
+export function escapedEllipsis(item: unknown, length = 40): string {
   const _length = Math.max(4, length) - 1;
   const text = toTypeString(item);
   return text.length < _length + 2

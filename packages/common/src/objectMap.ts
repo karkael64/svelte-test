@@ -7,7 +7,7 @@ export default function objectMap<
   Value extends any
 >(
   object: Record<Key, Value>,
-  fn: (item: Value, key: keyof Key, object: Record<Key, Value>) => OutEach,
+  fn: (item: Value, key: Key, object: Record<Key, Value>) => OutEach,
   thisArg?: any
 ) {
   const keys = Object.entries(object) as [Key, Value][];

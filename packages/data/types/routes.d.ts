@@ -1,7 +1,6 @@
 import type { RequestHandler } from "express";
 
-export const routeMethods = ["get", "post", "patch", "delete"] as const;
-type RouteMethod = typeof routeMethods[number];
+type RouteMethod = "get" | "post" | "patch" | "delete";
 
 export type RouteDefinition = {
   method: RouteMethod;
