@@ -23,7 +23,7 @@ export const createDefaultGroups = async () => {
   let currentParent = undefined;
   const groups = [];
   for (const name of groupNames) {
-    const group = await createGroup({
+    const group: Group = await createGroup({
       name,
       parentGroup: currentParent?.id
         ? { connect: { id: currentParent.id } }

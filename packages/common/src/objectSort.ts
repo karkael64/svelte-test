@@ -30,7 +30,7 @@ declare global {
   }
 }
 
-if (Object.prototype.sort) {
+if (Object.prototype.sort === undefined) {
   Object.defineProperty(Object.prototype, "sort", {
     enumerable: false,
     configurable: true,
