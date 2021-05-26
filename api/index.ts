@@ -1,5 +1,5 @@
 import express from "express";
-import { graphql } from "../packages/data/dist/data/src";
+import { graphql } from "@test/data";
 
 const app = express();
 app.use("/api/graphql", graphql);
