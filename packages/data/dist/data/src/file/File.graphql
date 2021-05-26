@@ -1,5 +1,0 @@
-type File {
-  id: String!
-  title: String!
-  group: Group!
-}

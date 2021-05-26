@@ -18,7 +18,6 @@
     "url": "https://github.com/karkael64"
   },
   "scripts": {
-    "prebuild": "yarn",
     "build": "yarn @common build && yarn @prisma build && yarn @data build && yarn @web build",
     "postbuild": "yarn pretty",
     "build:server:files": "tsc --project ./tsconfig.api.json",
@@ -55,7 +54,6 @@
     "types": "https://github.com/karkael64/types.git"
   },
   "engines": {
-    "node": "14",
     "yarn": ">=1.12"
   },
   "repository": "github:karkael64/svelte-test",

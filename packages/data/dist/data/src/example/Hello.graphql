@@ -1,8 +1,0 @@
-type Hello {
-  date: DateTime!
-  message: String
-}
-
-type Query {
-  hello: Hello!
-}
