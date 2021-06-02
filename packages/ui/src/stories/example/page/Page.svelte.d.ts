@@ -5,8 +5,8 @@ export declare class Page extends SvelteComponentTyped<
     user?: Record<any, any> | null;
   },
   {
-    "on:login"(event: Event): any;
-    "on:logout"(event: Event): any;
-    "on:createAccount"(event: Event): any;
+    login(event: Event): any;
+    logout(event: Event): any;
+    createAccount(event: Event): any;
   }
 > {}

@@ -1,8 +1,10 @@
 export default function arrayFlat<Type>(list: Type[][], depth = 1): Type[] {
   if (depth < 1) return list as any;
   return arrayFlat(list, depth - 1).reduce((acc, val) => {
-    Array.isArray(val) ? acc.concat(val) : acc.push(val);
-    return acc;
+    if (Array.isArray(val)) {
+      return [...acc, ...val];
+    }
+    return [...acc, val];
   }, [] as Type[]);
 }
 

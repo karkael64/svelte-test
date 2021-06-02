@@ -1,5 +1,8 @@
+export { default as arrayFilterAsync } from "./arrayFilterAsync";
 export { default as arrayFlat } from "./arrayFlat";
 export { default as arrayGroupBy } from "./arrayGroupBy";
+export { default as arrayMapAsync } from "./arrayMapAsync";
+export { default as arrayReduceAsync } from "./arrayReduceAsync";
 export { ellipsis, ellipsisQuoted, escapedEllipsis } from "./ellipsis";
 export { default as injectImports } from "./injectImports";
 export { objectHasPorperty, objectHasProperties } from "./objectHasProperty";
