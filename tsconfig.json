@@ -3,6 +3,7 @@
     "strict": true,
     "declaration": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "module": "CommonJS",
     "target": "es6",
     "baseUrl": ".",
@@ -22,5 +23,11 @@
     "packages/prisma",
     "packages/ui",
     "packages/web"
+  ],
+  "exclude": [
+    "node_modules",
+    "packages/*/node_modules",
+    "dist",
+    "packages/*/dist"
   ]
 }

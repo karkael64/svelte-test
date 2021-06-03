@@ -2,12 +2,12 @@
   import { QueryListUsers } from "../graphql";
   import { Button } from "@test/ui";
   let usersQuery: ReturnType<typeof QueryListUsers> | null = null;
-  function onClick (){
+  function onClick() {
     usersQuery = QueryListUsers({});
   }
 </script>
 
-<Button label="Hello" on:click={onClick}></Button>
+<Button label="Hello" on:click={onClick} />
 
 {#if usersQuery}
   {#await usersQuery}

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserCard Should instanciate with default values 1`] = `
+<body>
+  <div>
+    <div>
+      <div
+        class="label svelte-1d4gpnu"
+        name="name"
+      >
+        <span
+          class="title svelte-1d4gpnu"
+        >
+          Name
+        </span>
+         
+        <span
+          class="value svelte-1d4gpnu"
+        >
+          User
+        </span>
+      </div>
+       
+      <div
+        class="label svelte-1d4gpnu"
+        name="email"
+      >
+        <span
+          class="title svelte-1d4gpnu"
+        >
+          Email
+        </span>
+         
+        <span
+          class="value svelte-1d4gpnu"
+        >
+          user@email.com
+        </span>
+      </div>
+    </div>
+    
+  </div>
+</body>
+`;

@@ -1,29 +1,32 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from "svelte";
 
   export let primary = false;
-  export let size = 'medium';
+  export let size = "medium";
   export let label: string;
 
-  let mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  let mode = primary
+    ? "storybook-button--primary"
+    : "storybook-button--secondary";
 
   const dispatch = createEventDispatcher();
 
   function onClick(event: Event) {
-    dispatch('click', event);
+    dispatch("click", event);
   }
 </script>
 
 <button
   type="button"
   class={`storybook-button storybook-button--${size} ${mode}`}
-  on:click={onClick}>
+  on:click={onClick}
+>
   {label}
 </button>
 
 <style>
   .storybook-button {
-    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     border: 0;
     border-radius: 3em;

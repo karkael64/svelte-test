@@ -1,12 +1,11 @@
 import { fireEvent } from "@testing-library/svelte";
-import { Button } from "../src/main";
-import type { Button as ButtonType } from "../src/type";
-import { renderWithEvents } from "./renderWithEvents";
+import Button from "./Button.svelte";
+import { renderWithEvents } from "../../../../test/renderWithEvents";
 
 describe("Button", () => {
   it("Should instanciate with default values", async () => {
     const label = "inner text";
-    const { getByText, component } = renderWithEvents<ButtonType>(Button, {
+    const { getByText, container } = renderWithEvents(Button, {
       label,
     });
 
@@ -17,12 +16,12 @@ describe("Button", () => {
     expect(button).toHaveClass("storybook-button--medium");
     expect(button).toHaveClass("storybook-button--secondary");
 
-    expect(component).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("Should change size to small", async () => {
     const label = "inner text";
-    const { getByText } = renderWithEvents<ButtonType>(Button, {
+    const { getByText } = renderWithEvents(Button, {
       label,
       size: "small",
     });
@@ -33,7 +32,7 @@ describe("Button", () => {
 
   it("Should change size to large", async () => {
     const label = "inner text";
-    const { getByText } = renderWithEvents<ButtonType>(Button, {
+    const { getByText } = renderWithEvents(Button, {
       label,
       size: "large",
     });
@@ -44,7 +43,7 @@ describe("Button", () => {
 
   it("Should change size to primary", async () => {
     const label = "inner text";
-    const { getByText } = renderWithEvents<ButtonType>(Button, {
+    const { getByText } = renderWithEvents(Button, {
       label,
       primary: true,
     });
@@ -56,7 +55,7 @@ describe("Button", () => {
   it("Should trigger click", async () => {
     const label = "inner text";
     const handleClick = jest.fn();
-    const { getByText } = renderWithEvents<ButtonType>(
+    const { getByText } = renderWithEvents(
       Button,
       { label },
       { click: handleClick }

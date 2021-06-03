@@ -4,11 +4,13 @@
   import Hello from "./Hello.svelte";
   import Counter from "./Counter.svelte";
 
-  setClient(new ApolloClient({
-    uri: process.env.URL_GRAPHQL,
-    cache: new InMemoryCache({ addTypename: true }),
-    connectToDevTools: true,
-  }));
+  setClient(
+    new ApolloClient({
+      uri: process.env.URL_GRAPHQL,
+      cache: new InMemoryCache({ addTypename: true }),
+      connectToDevTools: true,
+    })
+  );
 </script>
 
 <main>

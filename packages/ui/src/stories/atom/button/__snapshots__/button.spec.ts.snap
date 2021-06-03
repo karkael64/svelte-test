@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Should instanciate with default values 1`] = `
+<body>
+  <div>
+    <button
+      class="storybook-button storybook-button--medium storybook-button--secondary svelte-fztlcy"
+      type="button"
+    >
+      inner text
+    </button>
+  </div>
+</body>
+`;
