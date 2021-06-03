@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { Header } from "../header/Header.svelte";
+  import Header from "../header/Header.svelte";
   import { createEventDispatcher } from "svelte";
 
-  export let user = null;
+  export let user: any = null;
 
   const dispatch = createEventDispatcher();
 

@@ -2,6 +2,7 @@
   "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "strict": true,
+    "resolveJsonModule": true,
     "types": ["svelte", "jest", "@testing-library/jest-dom"]
   },
   "include": ["src", "i18n"],

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "svelte": "src/main.ts",
-  "types": "src/type.d.ts",
+  "types": "src/main.ts",
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

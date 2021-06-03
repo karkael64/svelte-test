@@ -28,6 +28,7 @@
     "node_modules",
     "packages/*/node_modules",
     "dist",
-    "packages/*/dist"
+    "packages/*/dist",
+    "packages/prisma/client"
   ]
 }

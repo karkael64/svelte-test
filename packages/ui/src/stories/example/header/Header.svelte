@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { Button } from "../../atom/button/Button.svelte";
+  import Button from "../../atom/button/Button.svelte";
   import { createEventDispatcher } from "svelte";
 
-  export let user = null;
+  export let user: any = null;
 
   const dispatch = createEventDispatcher();
 
